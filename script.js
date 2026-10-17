@@ -24,12 +24,14 @@ const form = document.querySelector("#enquiry-form");
 const status = document.querySelector("#form-status");
 
 if (form && status) {
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
-
     if (!form.reportValidity()) return;
 
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton ? submitButton.innerHTML : "";
     const data = new FormData(form);
+
     const name = String(data.get("name") || "").trim();
     const email = String(data.get("email") || "").trim();
     const enquiryType = String(data.get("enquiryType") || "").trim();
@@ -40,12 +42,48 @@ if (form && status) {
       return;
     }
 
-    const subject = encodeURIComponent("Website enquiry: " + enquiryType);
-    const body = encodeURIComponent(
-      "Name: " + name + "\nEmail: " + email + "\nEnquiry type: " + enquiryType + "\n\nMessage:\n" + message
-    );
+    if (!form.action.startsWith("https://formspree.io/f/")) {
+      status.textContent = "The enquiry form is not configured yet. Please try again later.";
+      return;
+    }
 
-    status.textContent = "Your email app may open with a draft. This website does not send or save enquiries yet.";
-    window.location.href = "mailto:REPLACE-WITH-YOUR-BUSINESS-EMAIL@example.com?subject=" + subject + "&body=" + body;
+    data.set("_subject", "Chinchvan website enquiry: " + enquiryType);
+    status.textContent = "Sending your enquiry…";
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending…";
+    }
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" }
+      });
+
+      if (response.ok) {
+        form.reset();
+        status.textContent = "Thank you for contacting Chinchvan. Your enquiry has been submitted. Check your inbox for any verification email from Formspree if prompted.";
+      } else {
+        let serviceMessage = "";
+        try {
+          const result = await response.json();
+          serviceMessage = Array.isArray(result.errors)
+            ? result.errors.map((item) => item.message).join(" ")
+            : "";
+        } catch (_) {}
+
+        status.textContent = serviceMessage
+          ? "We could not submit your enquiry: " + serviceMessage
+          : "We could not submit your enquiry. Please check the Formspree setup and try again.";
+      }
+    } catch (_) {
+      status.textContent = "A network error prevented submission. Check your connection and try again.";
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalButtonText;
+      }
+    }
   });
 }
