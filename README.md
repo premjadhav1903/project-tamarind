@@ -29,12 +29,12 @@ Then visit http://localhost:8000.
 
 ## Files
 
-- `index.html` — page structure and content
+- `index.html` — homepage\n- `products.html` — planned products and B2B supply overview\n- `process.html` — processing approach and quality principles\n- `about.html` — business story and principles\n- `contact.html` — dedicated enquiry page
 - `styles.css` — responsive styling and visual design
 - `script.js` — navigation, form validation, and interaction
 - `README.md` — project notes and setup instructions
 
-## Before publishing
+## Page structure\n\nThe site now uses separate pages rather than putting all content on one long homepage. Navigation links connect the Home, Products, Our Approach, About and Contact pages.\n\n## Before publishing
 
 1. Replace the working brand name and all placeholder contact details.
 2. Use authentic product, facility, and packaging photographs that you have permission to use.
