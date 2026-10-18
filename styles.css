@@ -242,3 +242,27 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 @media(max-width:800px){.header-contacts{gap:4px}.header-contact{margin-left:0;margin-right:0}.header-email{max-width:155px}.header-email small{font-size:8px}}
 @media(max-width:520px){.header-contacts{gap:3px}.header-contact{gap:4px;padding:6px}.header-contact svg{width:15px;height:15px}.header-contact strong{font-size:8px}.header-contact small{font-size:7px}.header-email{max-width:112px}.header-email small{max-width:82px;overflow:hidden;text-overflow:ellipsis}}
 @media(max-width:380px){.header-email{max-width:38px;justify-content:center}.header-email span{display:none}.header-contact:not(.header-email) span{display:none}}
+
+
+/* Keep the complete official email address visible on phones */
+@media(max-width:800px){
+  .site-header{flex-wrap:wrap}
+  .header-contacts{order:3;flex:0 0 100%;width:100%;justify-content:center;margin:4px 0 0}
+  .header-contact{padding:7px 10px;gap:7px}
+  .header-contact strong{font-size:10px}
+  .header-contact small{font-size:9px}
+  .header-email{max-width:none;flex:1;min-width:0}
+  .header-email small{font-size:clamp(7px,2.5vw,10px);overflow:visible;text-overflow:clip;white-space:nowrap;letter-spacing:0}
+  .header-contact:not(.header-email) span{display:grid}
+  .header-email span{display:grid;min-width:0}
+}
+@media(max-width:380px){
+  .header-contacts{gap:5px}
+  .header-contact{padding:7px 6px}
+  .header-contact svg{width:16px;height:16px}
+  .header-contact strong{font-size:9px}
+  .header-contact small{font-size:clamp(6px,2.15vw,8px)}
+  .header-email{max-width:none;justify-content:flex-start}
+  .header-email span{display:grid}
+  .header-contact:not(.header-email) span{display:grid}
+}
