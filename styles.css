@@ -274,3 +274,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .whatsapp-float:hover{background:#106c40;transform:translateY(-2px)}
 .whatsapp-float:focus-visible{outline:3px solid #f4c76b;outline-offset:3px}
 @media(max-width:520px){.whatsapp-float{right:12px;bottom:14px;padding:12px 15px;font-size:13px}.whatsapp-float svg{width:21px;height:21px}}
+
+
+/* Keep WhatsApp enquiry above the Netlify deploy badge */
+.whatsapp-float{bottom:94px;z-index:2147483000}
+@media(max-width:520px){.whatsapp-float{bottom:88px;right:12px}}
