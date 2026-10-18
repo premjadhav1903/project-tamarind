@@ -279,3 +279,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 /* Keep WhatsApp enquiry above the Netlify deploy badge */
 .whatsapp-float{bottom:94px;z-index:2147483000}
 @media(max-width:520px){.whatsapp-float{bottom:88px;right:12px}}
+
+
+/* Business location and satellite map section at the bottom of pages */
+.location-section{padding-top:64px;padding-bottom:64px;border-top:1px solid rgba(194,145,77,.25)}
+.location-heading{max-width:680px;margin:0 auto 26px;text-align:center}
+.location-heading h2{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,46px);line-height:1.12;margin:8px 0 12px;color:#f8eee0}
+.location-heading h2 em{color:#c98a21;font-weight:500}
+.location-heading>p:last-child{color:#c8b7a6;line-height:1.7}
+.location-map-link{display:block;max-width:1000px;margin:0 auto;border:1px solid rgba(194,145,77,.45);border-radius:18px;overflow:hidden;background:#24180f;color:#f8eee0}
+.location-map-link iframe{display:block;width:100%;height:360px;border:0;pointer-events:none}
+.location-map-caption{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:17px 20px}
+.location-map-caption>span:first-child{display:grid;gap:5px}
+.location-map-caption strong{font-size:15px}
+.location-map-caption small{font-size:12px;color:#c8b7a6}
+.location-map-caption>span:last-child{font-size:24px;color:#d18a3a}
+@media(max-width:600px){.location-section{padding-top:44px;padding-bottom:44px}.location-map-link iframe{height:280px}.location-map-caption{padding:14px 16px}}
