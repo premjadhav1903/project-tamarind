@@ -232,3 +232,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 @media(max-width:1000px){.header-contact{gap:6px;padding:7px 8px}.header-contact strong{font-size:11px}.header-contact small{font-size:10px}.site-header{gap:12px}}
 @media(max-width:800px){.header-contact{margin-left:auto;margin-right:5px;padding:6px 8px}.header-contact svg{width:18px;height:18px}.header-contact strong{font-size:10px}.header-contact small{font-size:9px}.site-header{gap:7px}}
 @media(max-width:420px){.header-contact{gap:5px;padding:6px;border-radius:22px}.header-contact svg{width:16px;height:16px}.header-contact strong{font-size:9px}.header-contact small{font-size:8px}.menu-toggle{padding:5px;min-width:38px}}
+
+
+/* Official phone and email contacts in the site header */
+.header-contacts{display:flex;align-items:center;gap:7px;flex-shrink:0}
+.header-email{max-width:220px}
+.header-email small{white-space:nowrap}
+@media(max-width:1000px){.header-contacts{gap:5px}.header-email{max-width:190px}.header-email small{font-size:9px}}
+@media(max-width:800px){.header-contacts{gap:4px}.header-contact{margin-left:0;margin-right:0}.header-email{max-width:155px}.header-email small{font-size:8px}}
+@media(max-width:520px){.header-contacts{gap:3px}.header-contact{gap:4px;padding:6px}.header-contact svg{width:15px;height:15px}.header-contact strong{font-size:8px}.header-contact small{font-size:7px}.header-email{max-width:112px}.header-email small{max-width:82px;overflow:hidden;text-overflow:ellipsis}}
+@media(max-width:380px){.header-email{max-width:38px;justify-content:center}.header-email span{display:none}.header-contact:not(.header-email) span{display:none}}
